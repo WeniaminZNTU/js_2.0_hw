@@ -118,22 +118,109 @@ test = false;
 check_test_for_not_tru(test);
 
 //Third task
-const small_discount = 3, middle_discount = 5;
+const smallDiscount = 3, middleDiscount = 5;
 let amount, toPay;
 
 amount = prompt('Enter purchase amount');
 
 if(amount >= 500 && amount < 800)
 {
-    toPay = ((amount / 100) * small_discount) - amount;
+    toPay = ((amount / 100) * smallDiscount) - amount;
     alert(`Purchase amount:${toPay}`)
 }
 
 else if(amount >= 800)
 {
-    toPay = ((amount / 100) * middle_discount) - amount;
+    toPay = ((amount / 100) * middleDiscount) - amount;
     alert(`Purchase amount:${toPay}`)
 }
 
 else{alert(`Purchase amount:${toPay}`);}
+
+//Cycle tasks
+//First task
+let counter;
+
+counter = 25;
+while(counter >= 0)
+{
+    console.log(counter--);
+}
+
+counter = 25;
+do
+{
+    console.log(counter--);
+}while(counter >= 0);
+
+counter = 25;
+for(let i = 0; counter >= 0; i--)
+{
+    console.log(counter);
+}
+
+//Second task
+let cycleCounter;
+
+cycleCounter = 10;
+while(cycleCounter <= 50)
+{
+    if(cycleCounter % 5 === 0) console.log(cycleCounter++);
+}
+
+cycleCounter = 10;
+do
+{
+    if(cycleCounter % 5 === 0) console.log(cycleCounter);
+    cycleCounter++;
+}while(cycleCounter <= 50);
+
+cycleCounter = 10;
+for(let i = 0; counter <= 50; i++)
+{
+    if(i % 5 === 0) console.log(i);
+}
+
+
+//Third task
+let count, sumOfNam;
+
+sumOfNam = 0;
+count = 1;
+while(counter < 100)
+{
+    sumOfNam += count;
+}
+
+sumOfNam = 0;
+count = 1;
+do
+{
+    sumOfNam += count;
+}while(count < 100);
+
+sumOfNam = 0;
+for(let i = 1; count < 100; count++)
+{
+    sumOfNam += i;
+}
+
+//Fourth task
+let userNamber;
+const answer = 6;
+
+while(userNamber != answer)
+{
+    userNamber = prompt('Solve the math example(2 + 2 * 2) and enter your answer');
+}
+
+do{
+    userNamber = prompt('Solve the math example(2 + 2 * 2) and enter your answer');
+}while(userNamber != answer);
+
+userNamber = null;
+for( ; userNamber != answer; )
+{
+    userNamber = prompt('Solve the math example(2 + 2 * 2) and enter your answer');
+}
 
