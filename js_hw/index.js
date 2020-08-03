@@ -224,3 +224,12 @@ for( ; userNamber != answer; )
     userNamber = prompt('Solve the math example(2 + 2 * 2) and enter your answer');
 }
 
+//Function assignment
+function isAdult(age)
+{
+    if(age >= 18) return true;
+    else return false;
+}
+
+console.log(`The result of the isAdult function with parameter 4:${isAdult(4)}`);
+console.log(`The result of the isAdult function with parameter 4:${isAdult(20)}`);
