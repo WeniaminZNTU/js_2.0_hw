@@ -20,9 +20,9 @@ let language = 'java script';
 let vanHundred = '100';
 
 console.log(`nam: ${nam}`);
-console.log(`bool_t: ${boolTrue}`);
+console.log(`boolTrue: ${boolTrue}`);
 console.log(`language: ${language}`);
-console.log(`van_hundred: ${vanHundred}`);
+console.log(`vanHundred: ${vanHundred}`);
 
 //Fifth task
 let num = 1;
@@ -39,18 +39,20 @@ num--;
 //First task
 let usrNam, squareUsrNam;
 
-usrNam = prompt('Enter namber');
+usrNam = prompt('Enter a number to calculate its square');
+
+usrNam = parseFloat(usrNam);
 
 squareUsrNam = usrNam ** 2;
 
-alert(`Square of number ${usrNam}:${squareUsrNam}`)
+//alert(`Square of number ${usrNam}:${squareUsrNam}`)
 
 //Second task
 let firstUsrNam, secondUsrNam;
 let average;
 
-firstUsrNam = prompt('Enter first namber');
-secondUsrNam = prompt('Enter second namber');
+firstUsrNam = prompt('Enter the first number to find the arithmetic mean');
+secondUsrNam = prompt('Enter the second number to find the arithmetic mean');
 
 firstUsrNam = parseFloat(firstUsrNam);
 secondUsrNam = parseFloat(secondUsrNam);
@@ -66,7 +68,7 @@ minutes = prompt('Enter the number of minutes');
 
 seconds = minutes * 60;
 
-alert(`${seconds} seconds in ${minutes}`)
+alert(`${seconds} seconds in ${minutes} minutes`)
 
 //Fourth task
 let userName, greeting = 'Hello';
@@ -77,18 +79,19 @@ alert(`${greeting}, ${userName}`);
 
 //Condition-Based tasks
 //First task
-let usrNam;
+let usersNam;
 
-usrNam = prompt('Enter namber');
+usersNam = prompt('Enter namber(ten)');
 
-if(usrNam === 10)
+usersNam = parseFloat(usersNam);
+
+if(usersNam === 10)
 {
-    console.log('Верно');
+    alert('Верно');
 }
-
 else
 {
-    console.log('Неверно');
+    alert('Неверно');
 }
 
 //Second task
@@ -98,7 +101,7 @@ function check_test_for_true(check)
     else{console.log('Неверно');}
 }
 
-function check_test_for_not_tru(check)
+function check_test_for_not_true(check)
 {
     if(check != true){console.log('Верно');}
     else{console.log('Неверно');}
@@ -106,36 +109,38 @@ function check_test_for_not_tru(check)
 
 
 let test = true;
-console.log('Results for the first option')
+console.log('First check results')
 check_test_for_true(test);
 test = false;
 check_test_for_true(test);
 
 test = true;
-console.log('Results for the second option');
-check_test_for_not_tru(test);
+console.log('Second check results');
+check_test_for_not_true(test);
 test = false;
-check_test_for_not_tru(test);
+check_test_for_not_true(test);
 
 //Third task
-const smallDiscount = 3, middleDiscount = 5;
 let amount, toPay;
+const smallDiscount = 3, middleDiscount = 5;
 
 amount = prompt('Enter purchase amount');
 
+amount = parseFloat(amount);
+
 if(amount >= 500 && amount < 800)
 {
-    toPay = ((amount / 100) * smallDiscount) - amount;
-    alert(`Purchase amount:${toPay}`)
+    toPay = amount - ((amount / 100) * smallDiscount);
+    alert(`Discount purchase amount:${toPay}`)
 }
 
 else if(amount >= 800)
 {
-    toPay = ((amount / 100) * middleDiscount) - amount;
-    alert(`Purchase amount:${toPay}`)
+    toPay = amount - ((amount / 100) * middleDiscount);
+    alert(`Discount purchase amount:${toPay}`)
 }
 
-else{alert(`Purchase amount:${toPay}`);}
+else{alert(`Purchase amount:${amount}`);}
 
 //Cycle tasks
 //First task
@@ -153,10 +158,9 @@ do
     console.log(counter--);
 }while(counter >= 0);
 
-counter = 25;
-for(let i = 0; counter >= 0; i--)
+for(let i = 25; i >= 0; i--)
 {
-    console.log(counter);
+    console.log(i);
 }
 
 //Second task
@@ -165,31 +169,31 @@ let cycleCounter;
 cycleCounter = 10;
 while(cycleCounter <= 50)
 {
-    if(cycleCounter % 5 === 0) console.log(cycleCounter++);
+    if((cycleCounter % 5) === 0) console.log(cycleCounter++);
+    cycleCounter++;
 }
 
 cycleCounter = 10;
 do
 {
-    if(cycleCounter % 5 === 0) console.log(cycleCounter);
+    if((cycleCounter % 5) === 0) console.log(cycleCounter);
     cycleCounter++;
 }while(cycleCounter <= 50);
 
-cycleCounter = 10;
-for(let i = 0; counter <= 50; i++)
+for(let i = 10; i <= 50; i++)
 {
-    if(i % 5 === 0) console.log(i);
+    if((i % 5) === 0) console.log(i);
 }
-
 
 //Third task
 let count, sumOfNam;
 
 sumOfNam = 0;
 count = 1;
-while(counter < 100)
+while(count < 100)
 {
     sumOfNam += count;
+    count++;
 }
 
 sumOfNam = 0;
@@ -197,10 +201,11 @@ count = 1;
 do
 {
     sumOfNam += count;
+    count++;
 }while(count < 100);
 
 sumOfNam = 0;
-for(let i = 1; count < 100; count++)
+for(let i = 1; i < 100; i++)
 {
     sumOfNam += i;
 }
@@ -223,7 +228,7 @@ for( ; userNamber != answer; )
 {
     userNamber = prompt('Solve the math example(2 + 2 * 2) and enter your answer');
 }
-
+alert('Fourth task complete');
 //Function assignment
 function isAdult(age)
 {
@@ -231,5 +236,5 @@ function isAdult(age)
     else return false;
 }
 
-console.log(`The result of the isAdult function with parameter 4:${isAdult(4)}`);
-console.log(`The result of the isAdult function with parameter 4:${isAdult(20)}`);
+console.log(`The result of the isAdult function with (age) parameter 4:${isAdult(4)}`);
+console.log(`The result of the isAdult function with (age) parameter 20:${isAdult(20)}`);
