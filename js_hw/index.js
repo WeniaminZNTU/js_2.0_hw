@@ -81,9 +81,14 @@ alert(`${greeting}, ${userName}`);
 //First task
 let usersNam;
 
-usersNam = prompt('Enter namber(ten)');
+do{
+    usersNam = prompt('Enter namber(ten)');
+    if(usersNam === null){alert('Enter correct data');}
+    usersNam = parseFloat(usersNam);
+    // if(!usersNam === null) continue;
+    // usersNam = parseFloat(usersNam);
+}while(isNaN(usersNam));
 
-usersNam = parseFloat(usersNam);
 
 if(usersNam === 10)
 {
@@ -108,25 +113,29 @@ function check_test_for_not_true(check)
 }
 
 
-let test = true;
+let test = true
+
 console.log('First check results')
 check_test_for_true(test);
-test = false;
 check_test_for_true(test);
 
-test = true;
+test = false;
+
 console.log('Second check results');
 check_test_for_not_true(test);
-test = false;
 check_test_for_not_true(test);
 
 //Third task
 let amount, toPay;
 const smallDiscount = 3, middleDiscount = 5;
 
-amount = prompt('Enter purchase amount');
-
-amount = parseFloat(amount);
+do{
+    amount = prompt('Enter namber(ten)');
+    if(amount === null){alert('Enter correct data');}
+    amount = parseFloat(amount);
+    // if(!usersNam === null) continue;
+    // usersNam = parseFloat(usersNam);
+}while(isNaN(amount));
 
 if(amount >= 500 && amount < 800)
 {
