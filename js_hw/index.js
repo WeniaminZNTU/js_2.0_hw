@@ -79,35 +79,35 @@ alert(`${greeting}, ${userName}`);
 
 //Condition-Based tasks
 //First task
-let usersNam;
+let usersNam, again = true;
 
 do{
     usersNam = prompt('Enter namber(ten)');
-    if(usersNam === null){alert('Enter correct data');}
-    usersNam = parseFloat(usersNam);
-    // if(!usersNam === null) continue;
-    // usersNam = parseFloat(usersNam);
-}while(isNaN(usersNam));
+
+    if(usersNam !== null && !isNaN(usersNam) && usersNam !== ''){
+        usersNam = parseFloat(usersNam);
+        again = false;
+    }
+    else{
+      alert('Enter correct data');
+    }
+}while(again);
 
 
-if(usersNam === 10)
-{
+if(usersNam === 10){
     alert('Верно');
 }
-else
-{
+else{
     alert('Неверно');
 }
 
 //Second task
-function check_test_for_true(check)
-{
+function checkTestForTrue(check){
     if(check === true){console.log('Верно');}
     else{console.log('Неверно');}
 }
 
-function check_test_for_not_true(check)
-{
+function checkTestForNotTrue(check){
     if(check != true){console.log('Верно');}
     else{console.log('Неверно');}
 }
@@ -116,59 +116,60 @@ function check_test_for_not_true(check)
 let test = true
 
 console.log('First check results')
-check_test_for_true(test);
-check_test_for_true(test);
+checkTestForTrue(test);
+checkTestForTrue(test);
 
 test = false;
 
 console.log('Second check results');
-check_test_for_not_true(test);
-check_test_for_not_true(test);
+checkTestForNotTrue(test);
+checkTestForNotTrue(test);
 
 //Third task
-let amount, toPay;
+let amount, toPay, cycleAgain = true;
 const smallDiscount = 3, middleDiscount = 5;
 
 do{
     amount = prompt('Enter namber(ten)');
-    if(amount === null){alert('Enter correct data');}
-    amount = parseFloat(amount);
-    // if(!usersNam === null) continue;
-    // usersNam = parseFloat(usersNam);
-}while(isNaN(amount));
 
-if(amount >= 500 && amount < 800)
-{
+    if(amount !== null && !isNaN(amount) && amount !== ''){
+        amount = parseFloat(amount);
+        cycleAgain = false;
+    }
+    else{
+      alert('Enter correct data');
+    }
+}while(cycleAgain);
+
+if(amount >= 500 && amount < 800){
     toPay = amount - ((amount / 100) * smallDiscount);
     alert(`Discount purchase amount:${toPay}`)
 }
 
-else if(amount >= 800)
-{
+else if(amount >= 800){
     toPay = amount - ((amount / 100) * middleDiscount);
     alert(`Discount purchase amount:${toPay}`)
 }
 
-else{alert(`Purchase amount:${amount}`);}
+else{
+    alert(`Purchase amount:${amount}`);
+}
 
 //Cycle tasks
 //First task
 let counter;
 
 counter = 25;
-while(counter >= 0)
-{
+while(counter >= 0){
     console.log(counter--);
 }
 
 counter = 25;
-do
-{
+do{
     console.log(counter--);
 }while(counter >= 0);
 
-for(let i = 25; i >= 0; i--)
-{
+for(let i = 25; i >= 0; i--){
     console.log(i);
 }
 
@@ -176,21 +177,18 @@ for(let i = 25; i >= 0; i--)
 let cycleCounter;
 
 cycleCounter = 10;
-while(cycleCounter <= 50)
-{
+while(cycleCounter <= 50){
     if((cycleCounter % 5) === 0) console.log(cycleCounter++);
     cycleCounter++;
 }
 
 cycleCounter = 10;
-do
-{
+do{
     if((cycleCounter % 5) === 0) console.log(cycleCounter);
     cycleCounter++;
 }while(cycleCounter <= 50);
 
-for(let i = 10; i <= 50; i++)
-{
+for(let i = 10; i <= 50; i++){
     if((i % 5) === 0) console.log(i);
 }
 
@@ -199,23 +197,20 @@ let count, sumOfNam;
 
 sumOfNam = 0;
 count = 1;
-while(count < 100)
-{
+while(count < 100){
     sumOfNam += count;
     count++;
 }
 
 sumOfNam = 0;
 count = 1;
-do
-{
+do{
     sumOfNam += count;
     count++;
 }while(count < 100);
 
 sumOfNam = 0;
-for(let i = 1; i < 100; i++)
-{
+for(let i = 1; i < 100; i++){
     sumOfNam += i;
 }
 
@@ -223,8 +218,7 @@ for(let i = 1; i < 100; i++)
 let userNamber;
 const answer = 6;
 
-while(userNamber != answer)
-{
+while(userNamber != answer){
     userNamber = prompt('Solve the math example(2 + 2 * 2) and enter your answer');
 }
 
@@ -233,14 +227,12 @@ do{
 }while(userNamber != answer);
 
 userNamber = null;
-for( ; userNamber != answer; )
-{
+for( ; userNamber != answer; ){
     userNamber = prompt('Solve the math example(2 + 2 * 2) and enter your answer');
 }
 alert('Fourth task complete');
 //Function assignment
-function isAdult(age)
-{
+function isAdult(age){
     if(age >= 18) return true;
     else return false;
 }
