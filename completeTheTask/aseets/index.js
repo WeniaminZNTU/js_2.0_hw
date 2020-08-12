@@ -1,16 +1,8 @@
 'use strict'
 
-ArrayMethods.prototype = new CreateArray();
+CreateArray.prototype = new AddMethods();
 
-const myArr = new ArrayMethods('test1', 'test2', 'test3', 100, 50);
-
-
-myArr.forEach(function(item, i, arr){
-    alert(i + ': ' + item + ' (массив' + arr + ')');
-});
-
-console.log(myArr.push('test4'));
-console.log(myArr);
+const artificialArray = new ArrayMethods('test1', 'test2', 'test3', 100, 50);
 
 function CreateArray(){
     this.length = 0;
@@ -22,7 +14,8 @@ function CreateArray(){
     }
 }
 
-function ArrayMethods(){
+function AddMethods(){
+
     this.push = function (){
         this.length = 0;
 
@@ -50,3 +43,7 @@ function ArrayMethods(){
         }
     }
 }
+
+// myArr.forEach(function(item, i, arr){
+//     alert(i + ': ' + item + ' (массив' + arr + ')');
+// });

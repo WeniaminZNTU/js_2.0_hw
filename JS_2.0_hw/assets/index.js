@@ -5,7 +5,7 @@ let namber;
 let temp;
 
 namber = inputValidation('Enter a number to check');
-temp = inputValidation('Select the number to check for division: five(5), three(3), two(2)', 'Enter correct data', 2, 5);
+temp = inputValidation('Select the number to check for division: five(5), four(4), three(3), two(2)', 'Enter correct data', 2, 5);
 
 
 if(temp === 5){
@@ -184,9 +184,10 @@ console.log(`Product of aggregate of numbers from ${lim1} to ${lim2}=${productOf
 
 //Task 1 for functions
 function isPrime(num){
+  if(num === 1) return false;
 
   for(let i = 2; i < num; i++){
-    if(num % i === 0 && num !== 1) return false;
+    if(num % i === 0) return false;
   }
 
 return true;
@@ -258,8 +259,147 @@ console.log('');
 
 
 
+//Task 1 - Objects
+const student = {
+    name: 'Lorem',
+    surname: 'Ipsum',
+    isMale: true,
+    phoneNumber: '099 0567 89 002',
+    email: 'exzample@gmail.com',
+}
+
+const education = {
+    course: 2,
+    faculty: 'economy',
+    cathedra: 'Department of International Economic Relations',
+    curator: 'Deinega L. U.',
+}
 
 
+
+let randomNumericArray = new Int8Array(100);
+for(let i = 0; i < randomNumericArray.length; i++){
+    randomNumericArray[i] = Math.random() * (100 - (-100)) + (-100);
+//    console.log(`i=${i}, ${randomNumericArray[100]}`);
+}
+
+console.log('Task for array');
+console.log(`length randomNumericArray:${randomNumericArray.length}`);
+console.log('Even-indexed items');
+
+
+for(let i = 0; i < randomNumericArray.length; i++){
+    if(i % 2 === 0) console.log(`[${i}] = ${randomNumericArray[i]}`);
+}
+
+
+console.log('\nEven nambers');
+for(let i = 0; i < randomNumericArray.length; i++){
+    if(randomNumericArray[i] % 2 === 0) console.log(`Even:${randomNumericArray[i]}`);
+}
+
+console.log('\nIndex(es) of elements equal to zero\n');
+for(let i = 0, count = 0; i < randomNumericArray.length; i++){
+    
+    if(randomNumericArray[i] === 0){
+        console.log(`[${i}]`);
+        count++;
+    }
+
+    if((i + 1) === randomNumericArray.length) console.log(`\nWith a total of ${randomNumericArray.length} elements ${count} equal to zero\n\n`);
+}
+
+
+let book = function (authorName, bookName, releaseYear, publisher){
+    this.authorName = authorName,
+    this.bookName = bookName,
+    this.releaseYear = releaseYear,
+    this.publisher = publisher
+}
+
+let eBook = function (authorName, bookName, releaseYear, publisher, format, eNumber){
+    this.authorName = authorName,
+    this.bookName = bookName,
+    this.releaseYear = releaseYear,
+    this.publisher = publisher,
+    this.format = format,
+    this.eNumber = eNumber
+}
+
+
+
+CreateArray.prototype = new AddMethods();
+
+let tmp;
+
+const artifitialArray = new CreateArray('test1', 1);
+console.log('ArtifitialArray after creation:', artifitialArray);
+
+
+tmp = artifitialArray.push('test2', 200, 300);
+console.log('ArtifitialArray after push:', artifitialArray);
+console.log(`Number of elements after pushing 3x:${tmp}`);
+
+
+tmp = artifitialArray.pop();
+console.log('ArtifitialArray after pop:', artifitialArray);
+console.log(`The return value of the .pop() method:${tmp}`);
+
+
+console.log('\n.ForEach() method with one argument');
+artifitialArray.forEach(element => {
+    console.log(element);
+});
+
+console.log('\n.ForEach() method with three arguments');
+artifitialArray.forEach((element, index, array) => {
+    console.log(`[${index}] = ${element}`);
+});
+
+console.log('---------------------------------------');
+
+artifitialArray.forEach((element, index, array) => {
+    console.log(array);
+});
+
+
+
+function CreateArray(){
+    this.length = 0;
+
+    for(let i = 0; i < arguments.length; i++){
+        this[this.length] = arguments[i];
+
+        this.length++;
+    }
+}
+
+function AddMethods(){
+
+    this.push = function (){
+        for(let i = 0; i < arguments.length; i++){
+            this[this.length] = arguments[i];
+
+            this.length++;
+        }
+        return this.length;
+    };
+
+    this.pop = function (){
+        const lastIndex = --this.length;
+        const lastElement = this[lastIndex];
+
+        delete this[this.length];
+
+        return lastElement;
+    };
+
+    this.forEach = function (f){
+        for(let i = 0; i < this.length; i++){
+          f(this[i], i, this);
+        }
+    };
+}
 
 
 
@@ -274,11 +414,11 @@ function inputValidation(appealToUser, errMass='Enter correct data', lim1, lim2)
                   again = false;
                 }
 
-                else if(value !== null && !isNaN(value) && value !== '' && (lim1 !== undefined && value >= lim1 && lim2 === undefined)){
+                else if(value !== null && !isNaN(value) && value !== '' && (value >= lim1 && lim2 === undefined)){
                     value = Number(value);
                     again = false;
                 }
-  
+
                 else if(value !== null && !isNaN(value) && value !== '' && (value >= lim1 && value <= lim2)){
                   value = Number(value);
                   again = false;
