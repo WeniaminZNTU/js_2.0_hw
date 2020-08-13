@@ -5,7 +5,7 @@ let namber;
 let temp;
 
 namber = inputValidation('Enter a number to check');
-temp = inputValidation('Select the number to check for division: five(5), four(4), three(3), two(2)', 'Enter correct data', 2, 5);
+temp = inputValidation('Select the number to check for division: five(5), three(3), two(2)', 'Enter correct data', 2, 5);
 
 
 if(temp === 5){
@@ -328,11 +328,11 @@ let eBook = function (authorName, bookName, releaseYear, publisher, format, eNum
 
 
 
-CreateArray.prototype = new AddMethods();
+MyArray.prototype = new AddMethods();
 
 let tmp;
 
-const artifitialArray = new CreateArray('test1', 1);
+const artifitialArray = new MyArray('test1', 1);
 console.log('ArtifitialArray after creation:', artifitialArray);
 
 
@@ -363,8 +363,14 @@ artifitialArray.forEach((element, index, array) => {
 });
 
 
-
-function CreateArray(){
+/**
+ * Creates an instance of myArray
+ * 
+ * @constructor
+ * @this {myArray}
+ * @param {anything} - Accepts any number of elements
+ */
+function MyArray(){
     this.length = 0;
 
     for(let i = 0; i < arguments.length; i++){
@@ -374,8 +380,22 @@ function CreateArray(){
     }
 }
 
+/**
+* Adds elements
+* 
+* @method
+* @param {anything} - the arguments can have any number of elements
+* @return {number} - Correct number of elements in the array
+*/
 function AddMethods(){
 
+    /**
+    * Adds elements
+    * 
+    * @method
+    * @param {anything} - Accepts any number of parameters
+    * @return {number} - Returns the correct number of elements
+    */
     this.push = function (){
         for(let i = 0; i < arguments.length; i++){
             this[this.length] = arguments[i];
@@ -385,6 +405,12 @@ function AddMethods(){
         return this.length;
     };
 
+    /**
+    * Removes the last element of an array and returns it
+    * 
+    * @method
+    * @return {anything} - The value of the last element of the array
+    */
     this.pop = function (){
         const lastIndex = --this.length;
         const lastElement = this[lastIndex];
@@ -394,6 +420,12 @@ function AddMethods(){
         return lastElement;
     };
 
+    /**
+    * Loops through all elements of the array and applies function(f) to each
+    * 
+    * @method
+    * @param {function} f - a function that applies to each element
+    */
     this.forEach = function (f){
         for(let i = 0; i < this.length; i++){
           f(this[i], i, this);
@@ -402,7 +434,17 @@ function AddMethods(){
 }
 
 
-
+/**
+* Displays a message to the user with a request and in case of an error
+* Limits input to numbers from lim1 to lim2
+* 
+* @function
+* @param {string} appealToUser 
+* @param {string} errMass - Optional argument
+* @param {string} lim1 - Optional argument
+* @param {string} lim2 - Optional argument
+* @return {number} - Returns the correct value
+*/
 function inputValidation(appealToUser, errMass='Enter correct data', lim1, lim2){
     let value, again = true;
     
