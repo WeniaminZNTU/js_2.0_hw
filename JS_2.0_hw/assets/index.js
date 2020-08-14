@@ -49,7 +49,7 @@ switch(num){
         console.log(result);
         break;
     case 4:
-        result = 'зима';
+        result = 'осень';
         console.log(result);
         break;
 }
@@ -147,7 +147,7 @@ switch(true){
 //Task 1 - Cycles
 let number, fact = 1;
 
-number = inputValidation('Enter a number(to calculate its factorial)');
+number = inputValidation('Enter a number(to calculate its factorial)', 'Enter correct number, this number is too small', 1);
 
 for(let i = 1; i <= number; i++){
     fact *= i;
@@ -170,13 +170,13 @@ console.log(`Sum of ${N} elements of the sequence:${total}`);
 
 
 //Task 3 - Cycles
-let lim1, lim2, productOfNumbers = 0;
+let lim1, lim2, productOfNumbers = 1;
 
 lim1 = inputValidation('Enter the first number to calculate the product of numbers within (first and last number)');
-lim2 = inputValidation('Enter the last number', 'Enter correct data', lim1);
+lim2 = inputValidation('Enter the last number', 'Enter correct number, this nuber is too small', lim1);
 
 for(let i = lim1; i < lim2; i++){
-    productOfNumbers += i * (i + 1);
+    productOfNumbers += i * productOfNumbers;
 }
 
 console.log(`Product of aggregate of numbers from ${lim1} to ${lim2}=${productOfNumbers}`);
@@ -228,7 +228,7 @@ console.log('');
 
 
 //Task 4 for function
-function areaOfTriangle(a, b, c){
+function areaOfTriangleSides(a, b, c){
 let p, s;
 
     p = (a + b + c) / 2;
@@ -239,10 +239,23 @@ let p, s;
 
 
 console.log('Task 4 for function (1\\2)');
-console.log(`Calculated area of ​​a triangle using the areaOfTriangle() function with sides a = 10, b = 10, c = 10:${areaOfTriangle(10, 10, 10)}`);
-console.log(`Calculated area of ​​a triangle using the areaOfTriangle() function with sides a = 10, b = 5, c = 9:${areaOfTriangle(10, 5, 9)}`);
-console.log(`Calculated area of ​​a triangle using the areaOfTriangle() function with sides ​​a = 15, b = 11, c = 25:${areaOfTriangle(15, 11, 25)}`);
-console.log(`Calculated area of ​​a triangle using the areaOfTriangle() function with sides a = 25, b = 12.5, c = 22:${areaOfTriangle(25, 12.5, 22)}`);
+console.log(`Calculated area of ​​a triangle using the areaOfTriangleSides() function with sides a = 10, b = 10, c = 10:${areaOfTriangleSides(10, 10, 10)}`);
+console.log(`Calculated area of ​​a triangle using the areaOfTriangleSides() function with sides a = 10, b = 5, c = 9:${areaOfTriangleSides(10, 5, 9)}`);
+console.log(`Calculated area of ​​a triangle using the areaOfTriangleSides() function with sides ​​a = 15, b = 11, c = 25:${areaOfTriangleSides(15, 11, 25)}`);
+console.log(`Calculated area of ​​a triangle using the areaOfTriangleSides() function with sides a = 25, b = 12.5, c = 22:${areaOfTriangleSides(25, 12.5, 22)}`);
+console.log('');
+
+
+function areaOfTriangleHeightAndSides(a, h){
+    return (a * h) / 2;
+}
+
+
+console.log('Task 4 for function (2\\2)');
+console.log(`Calculated area of ​​a triangle using the areaOfTriangleHeightAndSides() function with sides a = 140, h = 80:${areaOfTriangleHeightAndSides(140, 80)}`);
+console.log(`Calculated area of ​​a triangle using the areaOfTriangleHeightAndSides() function with sides a = 80, h = 55:${areaOfTriangleHeightAndSides(80, 55)}`);
+console.log(`Calculated area of ​​a triangle using the areaOfTriangleHeightAndSides() function with sides a = 55, h = 20:${areaOfTriangleHeightAndSides(55, 20)}`);
+console.log(`Calculated area of ​​a triangle using the areaOfTriangleHeightAndSides() function with sides a = 6.5, h = 3:${areaOfTriangleHeightAndSides(6.5, 3)}`);
 console.log('');
 
 
@@ -250,7 +263,6 @@ function AreaOfRectangle(a, b){
     return a * b;
 }
     
-console.log('Task 4 for function (2\\2)');
 console.log(`Calculated area of ​​a rectangle using the areaOfRectangle() function with sides a = 5, b = 9:${AreaOfRectangle(5, 9)}`);
 console.log(`Calculated area of ​​a rectangle using the areaOfRectangle() function with sides a = 76, b = 158:${AreaOfRectangle(76, 158)}`);
 console.log(`Calculated area of ​​a rectangle using the areaOfRectangle() function with sides a = 10, b = 15:${AreaOfRectangle(10, 15)}`);
@@ -327,7 +339,7 @@ let eBook = function (authorName, bookName, releaseYear, publisher, format, eNum
 }
 
 
-
+//last task
 MyArray.prototype = new AddMethods();
 
 let tmp;
