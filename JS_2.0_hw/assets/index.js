@@ -1,27 +1,21 @@
 'use strict'
 
 //Condition task 
-let namber, divider;
-let dividedIntoTwo = false, dividedIntoThree = false, divisibleByFive = false;
+let number, divider, dividers = '';
 
-namber = inputValidation('Enter a number to check');
+number = inputValidation('Enter a number to check');
 divider = inputValidation('Select the number to check for division: five(5), three(3), two(2)', 'Enter correct data', 2, 5);
 
 
-if(namber % divider === 0) dividedIntoTwo = true;
-if(namber % divider === 0) dividedIntoThree = true;
-if(namber % divider === 0) divisibleByFive = true;
+if(namber % 2 === 0) dividers + '2';
 
-if(dividedIntoTwo === true && dividedIntoThree === false && divisibleByFive === false) console.log(`Your namber(${number}) divisible by 2`);
-if(dividedIntoTwo === false && dividedIntoThree === true && divisibleByFive === false) console.log(`Your namber(${number}) divisible by 3`);
-if(dividedIntoTwo === false && dividedIntoThree === false && divisibleByFive === true) console.log(`Your namber(${number}) divisible by 5`);
+if(namber % 3 === 0 && number % 2 !== 0) dividers + '3';
+if(namber % 3 === 0 && number % 2 === 0) dividers + ', 3';
+
+if(namber % 5 === 0) dividers + ', 5';
 
 
-if(dividedIntoTwo === true && dividedIntoThree === true && divisibleByFive === false) console.log(`Your namber(${number}) divisible by 2 & 3`);
-if(dividedIntoTwo === true && dividedIntoThree === false && divisibleByFive === true) console.log(`Your namber(${number}) divisible by 2 & 5`);
-if(dividedIntoTwo === false && dividedIntoThree === true && divisibleByFive === true) console.log(`Your namber(${number}) divisible by 3 & 5`);
-
-if(dividedIntoTwo === true && dividedIntoThree === true && divisibleByFive === true) console.log(`Your namber(${number}) divisible by 2, 3, 5`);
+console.log(`The number ${number} is divisible by ${dividers} without remainder`);
 
 
 
