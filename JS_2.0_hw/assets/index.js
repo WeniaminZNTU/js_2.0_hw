@@ -1,32 +1,27 @@
 'use strict'
 
 //Condition task 
-let namber;
-let temp;
+let namber, divider;
+let dividedIntoTwo = false, dividedIntoThree = false, divisibleByFive = false;
 
 namber = inputValidation('Enter a number to check');
-temp = inputValidation('Select the number to check for division: five(5), three(3), two(2)', 'Enter correct data', 2, 5);
+divider = inputValidation('Select the number to check for division: five(5), three(3), two(2)', 'Enter correct data', 2, 5);
 
 
-if(temp === 5){
-    if(namber % 5 === 0) console.log(`${namber} is divisible by ${temp} no remainder`);
-    else console.log(`${namber} is not divisible by ${temp}`);
-}
+if(namber % divider === 0) dividedIntoTwo = true;
+if(namber % divider === 0) dividedIntoThree = true;
+if(namber % divider === 0) divisibleByFive = true;
 
-if(temp === 4){
-    if(namber % 4 === 0) console.log(`${namber} is divisible by ${temp} no remainder`);
-    else console.log(`${namber} is not divisible by ${temp}`);
-}
+if(dividedIntoTwo === true && dividedIntoThree === false && divisibleByFive === false) console.log(`Your namber(${number}) divisible by 2`);
+if(dividedIntoTwo === false && dividedIntoThree === true && divisibleByFive === false) console.log(`Your namber(${number}) divisible by 3`);
+if(dividedIntoTwo === false && dividedIntoThree === false && divisibleByFive === true) console.log(`Your namber(${number}) divisible by 5`);
 
-if(temp === 3){
-    if(namber % 3 === 0) console.log(`${namber} is divisible by ${temp} no remainder`);
-    else console.log(`${namber} is not divisible by ${temp}`);
-}
 
-if(temp === 2){
-    if(namber % 2 === 0) console.log(`${namber} is divisible by ${temp} no remainder`);
-    else console.log(`${namber} is not divisible by ${temp}`);
-}
+if(dividedIntoTwo === true && dividedIntoThree === true && divisibleByFive === false) console.log(`Your namber(${number}) divisible by 2 & 3`);
+if(dividedIntoTwo === true && dividedIntoThree === false && divisibleByFive === true) console.log(`Your namber(${number}) divisible by 2 & 5`);
+if(dividedIntoTwo === false && dividedIntoThree === true && divisibleByFive === true) console.log(`Your namber(${number}) divisible by 3 & 5`);
+
+if(dividedIntoTwo === true && dividedIntoThree === true && divisibleByFive === true) console.log(`Your namber(${number}) divisible by 2, 3, 5`);
 
 
 
@@ -322,14 +317,14 @@ for(let i = 0, count = 0; i < randomNumericArray.length; i++){
 }
 
 
-let book = function (authorName, bookName, releaseYear, publisher){
+let Book = function (authorName, bookName, releaseYear, publisher){
     this.authorName = authorName,
     this.bookName = bookName,
     this.releaseYear = releaseYear,
     this.publisher = publisher
 }
 
-let eBook = function (authorName, bookName, releaseYear, publisher, format, eNumber){
+let EBook = function (authorName, bookName, releaseYear, publisher, format, eNumber){
     this.authorName = authorName,
     this.bookName = bookName,
     this.releaseYear = releaseYear,
