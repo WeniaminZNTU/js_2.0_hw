@@ -7,12 +7,20 @@ number = inputValidation('Enter a number to check');
 divider = inputValidation('Select the number to check for division: five(5), three(3), two(2)', 'Enter correct data', 2, 5);
 
 
-if(namber % 2 === 0) dividers + '2';
+if(namber % 2 === 0){
+    dividers + '2';
+}
 
-if(namber % 3 === 0 && number % 2 !== 0) dividers + '3';
-if(namber % 3 === 0 && number % 2 === 0) dividers + ', 3';
+if(namber % 3 === 0 && number % 2 !== 0){
+    dividers + '3';
+}
+if(namber % 3 === 0 && number % 2 === 0){
+    dividers + ', 3';
+}
 
-if(namber % 5 === 0) dividers + ', 5';
+if(namber % 5 === 0){
+    dividers + ', 5';
+}
 
 
 console.log(`The number ${number} is divisible by ${dividers} without remainder`);
@@ -467,7 +475,7 @@ function inputValidation(appealToUser, errMass='Enter correct data', lim1, lim2)
                   again = false;
                 }
     
-                else alert(errMass);
+                else console.error(errMass);
     
         }while(again)
     
