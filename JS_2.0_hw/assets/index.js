@@ -435,9 +435,9 @@ function AddMethods(){
     * @method
     * @param {function} f - a function that applies to each element
     */
-    this.forEach = function (f){
+    this.forEach = function (f, thisArg){
         for(let i = 0; i < this.length; i++){
-          f(this[i], i, this);
+          f.call(this, this[i], i, this);
         }
     };
 }
