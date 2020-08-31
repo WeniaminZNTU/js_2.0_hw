@@ -1,9 +1,9 @@
 'use strict'
 
 //Condition task 
-let number, divider, dividers = '';
+let namber, divider, dividers = '';
 
-number = inputValidation('Enter a number to check');
+namber = inputValidation('Enter a number to check');
 divider = inputValidation('Select the number to check for division: five(5), three(3), two(2)', 'Enter correct data', 2, 5);
 
 
@@ -23,7 +23,7 @@ if(namber % 5 === 0){
 }
 
 
-console.log(`The number ${number} is divisible by ${dividers} without remainder`);
+console.log(`The number ${namber} is divisible by ${dividers} without remainder`);
 
 
 
@@ -435,7 +435,7 @@ function AddMethods(){
     * @method
     * @param {function} f - a function that applies to each element
     */
-    this.forEach = function (f, thisArg){
+    this.forEach = function (f, thisArg = this){
         for(let i = 0; i < this.length; i++){
           f.call(this, this[i], i, this);
         }
